@@ -1,0 +1,359 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  background: #f5e4bc;
+}
+
+body {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: #292823;
+  letter-spacing: 0rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link {
+  font-family: "DM Serif Text", serif;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.heading-primary {
+  font-family: "DM Serif Text", serif;
+  font-size: 25rem;
+  line-height: 0.8;
+  letter-spacing: -3rem;
+}
+
+.heading-secondary {
+  font-family: "DM Serif Text", serif;
+  font-size: 2.3rem;
+  line-height: 1.4;
+  letter-spacing: 0rem;
+  font-weight: 400;
+}
+
+.u-margin-bottom-tiny {
+  margin-bottom: 2rem !important;
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 5rem !important;
+}
+
+.u-margin-bottom-medium {
+  margin-bottom: 8rem !important;
+}
+
+.u-margin-bottom-big {
+  margin-bottom: 15rem !important;
+}
+
+.u-margin-bottom-huge {
+  margin-bottom: 20rem !important;
+}
+
+.u-margin-top-huge {
+  margin-top: 35rem !important;
+}
+
+.first-letter {
+  padding: 1rem 3.5rem;
+  font-size: 7rem;
+  border: 0.2rem solid #292823;
+  position: relative;
+  float: left;
+  margin-right: 1rem;
+}
+.first-letter::before, .first-letter::after {
+  content: "";
+  position: absolute;
+  background: #292823;
+}
+.first-letter::before {
+  width: 0.1rem;
+  height: 94%;
+  right: 0.8rem;
+  top: 0;
+}
+.first-letter::after {
+  height: 0.1rem;
+  width: 93%;
+  bottom: 0.8rem;
+  left: 0;
+}
+
+.line-section.rigth, .line-section.left {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0rem;
+  width: 100%;
+}
+.line-section.rigth span, .line-section.left span {
+  white-space: nowrap;
+}
+.line-section.rigth .line, .line-section.left .line {
+  width: 100%;
+  height: 0.2rem;
+  background: #292823;
+}
+.line-section.rigth .line::before, .line-section.left .line::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #292823;
+  transform: translateY(-50%);
+}
+.line-section.rigth {
+  right: 15rem;
+  transform-origin: right;
+  transform: translateY(5rem) rotateZ(90deg);
+}
+.line-section.rigth span {
+  margin-right: 2rem;
+}
+.line-section.rigth .line::before {
+  right: 0;
+}
+.line-section.left {
+  bottom: 0rem;
+  left: 15rem;
+  transform-origin: left;
+  transform: translateY(5rem) rotateZ(-90deg);
+}
+.line-section.left span {
+  order: 2;
+  margin-left: 2rem;
+}
+.line-section.left .line {
+  order: 1;
+}
+.line-section.left .line::before {
+  left: 0;
+}
+
+.footer .line {
+  position: relative;
+  height: 1px;
+  width: 100%;
+  background: #292823;
+}
+.footer .line::after {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: #292823;
+}
+.footer__container {
+  padding: 8rem 13rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__logo {
+  display: flex;
+  font-size: 3rem;
+  letter-spacing: -0.4rem;
+  gap: 0.5rem;
+}
+.footer__logo span:nth-child(2) {
+  display: block;
+  margin-top: 0.5rem;
+}
+.footer__links {
+  display: flex;
+  gap: 4rem;
+  font-size: 2rem;
+}
+
+.header {
+  padding: 4rem 14rem;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  font-family: "DM Serif Text", serif;
+}
+.header__logo-heading {
+  font-size: 4.5rem;
+  letter-spacing: -0.6rem;
+  line-height: 0.8;
+}
+.header__logo-jacob {
+  margin-right: 1rem;
+}
+.header__logo-sub {
+  padding-left: 2rem;
+  font-size: 1.8rem;
+  letter-spacing: -0.2rem;
+}
+.header__logo-digital {
+  margin-right: 0.5rem;
+}
+.header__main-nav {
+  padding: 0 1rem;
+  display: flex;
+  gap: 5rem;
+}
+.header__item {
+  list-style: none;
+}
+
+.first-row {
+  width: 70%;
+  margin-bottom: 6rem;
+}
+
+.second-row {
+  display: flex;
+  gap: 6rem;
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+}
+.column:nth-child(2) {
+  margin-top: 20rem;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+  padding: 1rem 14rem;
+  padding-right: 22rem;
+}
+.hero__social {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  letter-spacing: 0rem;
+}
+.hero__social-text {
+  font-size: 2.2rem;
+}
+.hero__social-link {
+  font-family: "DM Serif Text", serif;
+  font-size: 1.6rem;
+}
+.hero__img-box {
+  flex: 3;
+  position: relative;
+}
+.hero__img-box--svg {
+  padding: 1rem 4rem;
+  border: 0.2rem solid #292823;
+}
+.hero__img-box--svg svg {
+  width: 100%;
+}
+.hero__img-box--fig {
+  position: absolute;
+  bottom: -2.5rem;
+}
+.hero__text-box {
+  flex: 6;
+  align-self: flex-end;
+}
+
+.skills {
+  padding: 0 9rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+.skills .heading-primary {
+  font-size: 32rem;
+}
+.skills__container {
+  width: 60%;
+  margin-left: 15rem;
+}
+.skills__img-box {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 2rem 4rem;
+  border: 0.2rem solid #292823;
+}
+.skills__img-box svg {
+  width: 100%;
+}
+
+.history {
+  padding: 0 9rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+.history .heading-primary {
+  text-align: center;
+}
+.history__container {
+  width: 75%;
+  margin: auto;
+}
+.history__container .first-row {
+  width: 55%;
+}
+.history__container .second-row .column:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+.history__container .second-row .column:nth-child(2):nth-child(2) {
+  margin-top: 10rem;
+}
+.history__container .second-row .column:nth-child(2):nth-child(2) .heading-secondary {
+  font-size: 3rem;
+}
+.history__project-desc {
+  display: flex;
+  justify-content: space-between;
+}
+.history__project-desc .date {
+  font-size: 1.5rem;
+}
+.history__project-clients {
+  padding-top: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+
+.writting {
+  padding: 0 9rem;
+}
+.writting__container {
+  width: 45%;
+  margin-left: 15rem;
+}
+.writting__heading-sub {
+  font-size: 3rem;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,116 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+  padding: 1rem 14rem;
+  padding-right: 22rem;
+}
+.hero__social {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  letter-spacing: 0rem;
+}
+.hero__social-text {
+  font-size: 2.2rem;
+}
+.hero__social-link {
+  font-family: "DM Serif Text", serif;
+  font-size: 1.6rem;
+}
+.hero__img-box {
+  flex: 3;
+  position: relative;
+}
+.hero__img-box--svg {
+  padding: 1rem 4rem;
+  border: 0.2rem solid #292823;
+}
+.hero__img-box--svg svg {
+  width: 100%;
+}
+.hero__img-box--fig {
+  position: absolute;
+  bottom: -2.5rem;
+}
+.hero__text-box {
+  flex: 6;
+  align-self: flex-end;
+}
+
+.skills {
+  padding: 0 9rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+.skills .heading-primary {
+  font-size: 32rem;
+}
+.skills__container {
+  width: 60%;
+  margin-left: 15rem;
+}
+.skills__img-box {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 2rem 4rem;
+  border: 0.2rem solid #292823;
+}
+.skills__img-box svg {
+  width: 100%;
+}
+
+.history {
+  padding: 0 9rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+.history .heading-primary {
+  text-align: center;
+}
+.history__container {
+  width: 75%;
+  margin: auto;
+}
+.history__container .first-row {
+  width: 55%;
+}
+.history__container .second-row .column:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+.history__container .second-row .column:nth-child(2):nth-child(2) {
+  margin-top: 10rem;
+}
+.history__container .second-row .column:nth-child(2):nth-child(2) .heading-secondary {
+  font-size: 3rem;
+}
+.history__project-desc {
+  display: flex;
+  justify-content: space-between;
+}
+.history__project-desc .date {
+  font-size: 1.5rem;
+}
+.history__project-clients {
+  padding-top: 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+
+.writting {
+  padding: 0 9rem;
+}
+.writting__container {
+  width: 45%;
+  margin-left: 15rem;
+}
+.writting__heading-sub {
+  font-size: 3rem;
+}
+
+/*# sourceMappingURL=home.css.map */
