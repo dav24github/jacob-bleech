@@ -1,3 +1,27 @@
+@keyframes moveSpan {
+  from {
+    transform: translateX(1366px);
+  }
+  to {
+    transform: translateX(-150px);
+  }
+}
+@keyframes svgBorderHorizontal {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes svgBorderVertical {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
 *,
 *::after,
 *::before {
@@ -13,6 +37,19 @@ html {
 body {
   box-sizing: border-box;
   background: #f5e4bc;
+}
+
+::selection {
+  background-color: #f2dba6;
+}
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+  background-color: #f5e4bc;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #292823;
 }
 
 body {
@@ -31,6 +68,27 @@ a {
   font-family: "DM Serif Text", serif;
   text-decoration: underline;
   font-weight: 500;
+}
+
+.link-hover {
+  position: relative;
+}
+.link-hover:hover::before {
+  opacity: 1;
+  left: -1.5rem;
+}
+.link-hover::before {
+  content: "";
+  background-color: #292823;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  top: 50%;
+  left: -2.5rem;
+  opacity: 0;
+  transition: 0.3s;
 }
 
 .heading-primary {
@@ -73,7 +131,7 @@ a {
 }
 
 .first-letter {
-  padding: 1rem 3.5rem;
+  padding: 1rem 3.25rem;
   font-size: 7rem;
   border: 0.2rem solid #292823;
   position: relative;
@@ -96,6 +154,63 @@ a {
   width: 93%;
   bottom: 0.8rem;
   left: 0;
+}
+
+.image-svg {
+  padding: 1rem 4rem;
+  position: relative;
+}
+.image-svg svg {
+  width: 100%;
+  opacity: 0;
+  transition: 0.6s;
+  transform: translateY(1rem);
+}
+.image-svg.is-visible div::after,
+.image-svg.is-visible div::before {
+  content: "";
+  position: absolute;
+  height: 0.2rem;
+  width: 100%;
+  background-color: #292823;
+}
+.image-svg.is-visible div:nth-child(1)::after {
+  top: 0;
+  right: 0;
+  animation: svgBorderHorizontal 0.3s linear both;
+}
+.image-svg.is-visible div:nth-child(1)::before {
+  width: 0.2rem;
+  height: 0%;
+  top: 0;
+  left: 0;
+  animation: svgBorderVertical 0.3s linear both 0.1s;
+}
+.image-svg.is-visible div:nth-child(2)::after {
+  bottom: 0;
+  left: 0;
+  animation: svgBorderHorizontal 0.3s linear both 0.4s;
+}
+.image-svg.is-visible div:nth-child(2)::before {
+  width: 0.2rem;
+  height: 0%;
+  bottom: 0;
+  right: 0;
+  animation: svgBorderVertical 0.3s linear both 0.5s;
+}
+.image-svg.is-visible svg {
+  opacity: 1;
+  transform: translateY(0rem);
+}
+.image-svg.is-visible:hover {
+  background: rgba(242, 219, 166, 0.8);
+}
+.image-svg.is-visible:hover svg {
+  transform: scale(1.03);
+}
+.image-svg.is-visible:hover div::after,
+.image-svg.is-visible:hover div::before {
+  background-color: #ecc163;
 }
 
 .line-section.rigth, .line-section.left {
@@ -150,6 +265,9 @@ a {
   left: 0;
 }
 
+.footer {
+  padding-bottom: 20rem;
+}
 .footer .line {
   position: relative;
   height: 1px;
@@ -266,13 +384,6 @@ a {
   flex: 3;
   position: relative;
 }
-.hero__img-box--svg {
-  padding: 1rem 4rem;
-  border: 0.2rem solid #292823;
-}
-.hero__img-box--svg svg {
-  width: 100%;
-}
 .hero__img-box--fig {
   position: absolute;
   bottom: -2.5rem;
@@ -298,7 +409,6 @@ a {
   margin-top: 1rem;
   margin-bottom: 2rem;
   padding: 2rem 4rem;
-  border: 0.2rem solid #292823;
 }
 .skills__img-box svg {
   width: 100%;
@@ -354,6 +464,209 @@ a {
 }
 .writting__heading-sub {
   font-size: 3rem;
+}
+
+.tips {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  transform-origin: center;
+  transform: rotateZ(3deg);
+  transition: 0.3s;
+}
+.tips input {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  opacity: 0;
+}
+.tips input:checked ~ .tips-svg .content {
+  display: block;
+}
+.tips input:checked ~ .tips-svg .content::after {
+  height: 35px;
+}
+.tips input:checked ~ .tips-svg .content .text {
+  transform: translateY(0rem) rotateZ(0deg);
+  opacity: 1;
+  pointer-events: all;
+}
+.tips input:checked ~ .tips-svg .svg-container {
+  background: rgba(242, 219, 166, 0.8);
+}
+.tips input:checked ~ .tips-svg .svg-container svg {
+  transform: scale(1.1);
+}
+.tips input:checked ~ .tips-svg::before {
+  opacity: 0.3;
+}
+.tips:hover {
+  transform: rotateZ(5deg);
+}
+.tips:hover .tips-svg .svg-container {
+  background: rgba(242, 219, 166, 0.8);
+}
+.tips .tips-svg {
+  width: 90px;
+  height: 90px;
+  margin-left: auto;
+  border-radius: 50%;
+  border: 1px solid #292823;
+  position: relative;
+}
+.tips .tips-svg .content {
+  width: 200px;
+  text-align: center;
+  margin-bottom: 6rem;
+  position: absolute;
+  top: -20rem;
+  left: -11rem;
+  pointer-events: none;
+}
+.tips .tips-svg .content .text {
+  background-color: #f5e4bc;
+  padding: 1rem;
+  border: dashed 2px #efcc7e;
+  transform: translateY(-5rem) rotateZ(-3deg);
+  opacity: 0;
+  transition: 0.3s;
+  transition-delay: 0.2s;
+}
+.tips .tips-svg .content .text a {
+  font-weight: 700;
+  text-decoration: underline;
+}
+.tips .tips-svg .content::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0px;
+  background: #292823;
+  bottom: -5rem;
+  right: 4rem;
+  transition: 0.3s;
+}
+.tips .tips-svg .content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.tips .tips-svg .content p {
+  font-size: 1.6rem;
+}
+.tips .tips-svg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-6px, -6px);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #292823;
+}
+.tips .tips-svg .svg-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+.tips .tips-svg .svg-container svg {
+  width: 105%;
+  height: 105%;
+  transition: 0.3s;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.easter-egg {
+  background-color: white;
+  overflow: hidden;
+}
+.easter-egg .transition {
+  width: 150%;
+  height: 250px;
+}
+.easter-egg .transition svg {
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100px);
+  filter: drop-shadow(0rem 0.5rem 1rem rgba(0, 0, 0, 0.3));
+}
+.easter-egg .content {
+  overflow: hidden;
+  margin: 0 15rem;
+  margin-bottom: 15rem;
+  font-family: "Times New Roman", Times, serif !important;
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 2 !important;
+}
+.easter-egg .content h2,
+.easter-egg .content h3,
+.easter-egg .content h4 {
+  font-weight: 900;
+}
+.easter-egg .content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.easter-egg .content h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.easter-egg .content h4 {
+  margin-bottom: 0.25rem;
+}
+.easter-egg .content .frame {
+  width: 100%;
+  border: 1px solid #000;
+  padding: 1rem;
+}
+.easter-egg .content .frame td {
+  width: 33%;
+}
+.easter-egg .content .frame__link {
+  text-decoration: underline;
+}
+.easter-egg .content summary {
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+.easter-egg .content summary input {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 20px;
+  opacity: 0;
+}
+.easter-egg .content summary input:checked ~ p {
+  display: block;
+}
+.easter-egg .content summary input:checked ~ .symbol {
+  display: inline-block;
+  transform: rotateZ(90deg);
+}
+.easter-egg .content summary .symbol {
+  transform: rotateZ(90deg);
+}
+.easter-egg .content summary p {
+  display: none;
+}
+.easter-egg .content .span-animation {
+  display: inline-block;
+  font-size: 2rem;
+  animation: moveSpan 10s linear infinite;
 }
 
 /*# sourceMappingURL=style.css.map */
