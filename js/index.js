@@ -6,7 +6,7 @@ line.forEach((line) => {
 });
 
 // ==================== Line ====================
-ScrollReveal().reveal(".image-svg", {
+ScrollReveal().reveal(".image-svg-box", {
   duration: 300,
   delay: 500,
   afterReveal: function (el) {
@@ -29,4 +29,24 @@ ScrollReveal().reveal(".hero__social div", {
   origin: "left",
   duration: 600,
   interval: 100,
+});
+
+ScrollReveal().reveal(".hero__text-box", {
+  duration: 600,
+  delay: 1500,
+});
+
+const tips = document.querySelector(".tips");
+let old = 0;
+// ==================== Line ====================
+window.addEventListener("scroll", () => {
+  console.log(old, "<", window.scrollY);
+  if (window.scrollY >= 300) {
+    tips.classList.add("visible");
+    tips.classList.remove("hidden");
+  } else if (old > window.scrollY) {
+    tips.classList.add("hidden");
+    tips.classList.remove("visible");
+  }
+  old = window.scrollY;
 });

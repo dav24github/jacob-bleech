@@ -112,6 +112,15 @@
   transform-origin: center;
   transform: rotateZ(3deg);
   transition: 0.3s;
+  z-index: 2000;
+  opacity: 0;
+  transform: translateX(10rem);
+}
+.tips.visible {
+  animation: tipsReveal 0.5s both;
+}
+.tips.hidden {
+  animation: tipsHide 0.5s both;
 }
 .tips input {
   cursor: pointer;
@@ -135,7 +144,7 @@
   pointer-events: all;
 }
 .tips input:checked ~ .tips-svg .svg-container {
-  background: rgba(242, 219, 166, 0.8);
+  background: rgba(242, 219, 166, 0.5);
 }
 .tips input:checked ~ .tips-svg .svg-container svg {
   transform: scale(1.1);
@@ -147,7 +156,7 @@
   transform: rotateZ(5deg);
 }
 .tips:hover .tips-svg .svg-container {
-  background: rgba(242, 219, 166, 0.8);
+  background: rgba(242, 219, 166, 0.5);
 }
 .tips .tips-svg {
   width: 90px;
@@ -156,6 +165,7 @@
   border-radius: 50%;
   border: 1px solid #292823;
   position: relative;
+  background-color: #f5e4bc;
 }
 .tips .tips-svg .content {
   width: 200px;

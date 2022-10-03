@@ -22,6 +22,38 @@
     height: 100%;
   }
 }
+@keyframes loaderAniation {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+@keyframes tipsReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+@keyframes tipsHide {
+  0% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+}
 *,
 *::after,
 *::before {
@@ -172,7 +204,7 @@ a {
   position: absolute;
   height: 0.2rem;
   width: 100%;
-  background-color: #292823;
+  background-color: var(--color, #292823);
 }
 .image-svg.is-visible div:nth-child(1)::after {
   top: 0;
@@ -263,6 +295,34 @@ a {
 }
 .line-section.left .line::before {
   left: 0;
+}
+
+.loader {
+  background-color: #292823;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: loaderAniation 1s forwards;
+}
+.loader__logo {
+  --color: #f5e4bc;
+  padding: 2rem 3rem;
+}
+.loader__logo-letters {
+  display: flex;
+  font-size: 3rem;
+  letter-spacing: -0.4rem;
+  gap: 0.5rem;
+  color: #f5e4bc;
+}
+.loader__logo-letters span:nth-child(2) {
+  display: block;
+  margin-top: 0.5rem;
 }
 
 .footer {
@@ -473,6 +533,15 @@ a {
   transform-origin: center;
   transform: rotateZ(3deg);
   transition: 0.3s;
+  z-index: 2000;
+  opacity: 0;
+  transform: translateX(10rem);
+}
+.tips.visible {
+  animation: tipsReveal 0.5s both;
+}
+.tips.hidden {
+  animation: tipsHide 0.5s both;
 }
 .tips input {
   cursor: pointer;
@@ -496,7 +565,7 @@ a {
   pointer-events: all;
 }
 .tips input:checked ~ .tips-svg .svg-container {
-  background: rgba(242, 219, 166, 0.8);
+  background: rgba(242, 219, 166, 0.5);
 }
 .tips input:checked ~ .tips-svg .svg-container svg {
   transform: scale(1.1);
@@ -508,7 +577,7 @@ a {
   transform: rotateZ(5deg);
 }
 .tips:hover .tips-svg .svg-container {
-  background: rgba(242, 219, 166, 0.8);
+  background: rgba(242, 219, 166, 0.5);
 }
 .tips .tips-svg {
   width: 90px;
@@ -517,6 +586,7 @@ a {
   border-radius: 50%;
   border: 1px solid #292823;
   position: relative;
+  background-color: #f5e4bc;
 }
 .tips .tips-svg .content {
   width: 200px;
